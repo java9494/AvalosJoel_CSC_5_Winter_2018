@@ -156,59 +156,59 @@ int main(int argc, char** argv) {
             break;
                 }
         case 3: {
-                //Declare Variables
-                float aproxE,term,x;
-                int counter;
+            //Declare Variables
+            float aproxE,term,x;
+            int counter;
 
-                //Initialize Variables
-                aproxE=1.0f;
-                counter=1;
-                x=1.0f;
-                term=x/counter++;
+            //Initialize Variables
+            aproxE=1.0f;
+            counter=1;
+            x=1.0f;
+            term=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //Process/Map inputs to outputs
-                aproxE+=term;
-                cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
-                term*=x/counter++;
+            //Process/Map inputs to outputs
+            aproxE+=term;
+            cout<<"e^"<<x<<" approximately = "<<aproxE<<endl;
+            term*=x/counter++;
 
-                //output data
-                cout<<"e^"<<x<<" exactly       = "<<exp(x)<<endl;
-                break;
+            //output data
+            cout<<"e^"<<x<<" exactly       = "<<exp(x)<<endl;
+            break;
         }
         case 4: {
             cout<<"Put problem 4 here "<<endl;break;
