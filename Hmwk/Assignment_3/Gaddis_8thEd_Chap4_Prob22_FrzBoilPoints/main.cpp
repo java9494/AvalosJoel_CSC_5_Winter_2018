@@ -3,7 +3,7 @@
  * Author: Joel Avalos
  * Created on January 16, 2018, 7:12 PM
  * Purpose: Create a program that will tell the user what chemicals will either
- * freeze or boil at a user inputted temperature.
+ * freeze or boil at a user-inputted temperature.
  */
  
  //System Libraries
