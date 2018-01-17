@@ -42,27 +42,47 @@ int main(int argc, char** argv) {
     //Output the results
     switch(probNum){
         case 1: {
-            //Set the random number seed DO THIS ONCE ONLY in beginning of program
-            srand(static_cast<unsigned int>(time(0)));
-
-            //Declare Variables
-            unsigned short op1,op2,result,answer;
-
-            //Initialize Variables
-            op1=rand()%900+100;//Three digit number
-            op2=rand()%1000;//Any 1 to 3 digit number
-
-            //Process/Map inputs to outputs
-            result=op1+op2;
-
-            //output data
-            cout<<"Step right up! Test your adding skills! Test your addition skills!"<<endl;
-            cout<<setw(5)<<op1<<endl;
-            cout<<"+ "<<setw(3)<<op2<<endl;
-            cout<<"-----"<<endl<<(result>=1000?" ":"   ")<<endl;
-            cin>>answer;
-            cout<<(result==answer?"Correct!":"Incorrect.")<<endl;
+    unsigned short int number1, number2,//2 random numbers to be added together.
+                       sum,//The sum of the two numbers.
+                       answer;//What the user believes the answer to be.
+    const unsigned short MINVALU=1;
+    const unsigned short MAXVALU=999;
+    
+    //Seed the random number generator.
+    unsigned seed = time(0);//Randomizing the numbers each time.
+    srand(seed);
+    
+    //Initialize Variables
+    number1= (rand() % (MAXVALU - MINVALU + 1)) + MINVALU;
+    number2= (rand() % (MAXVALU - MINVALU + 1)) + MINVALU;
+    //This formula is to limit the randomized numbers into a 3 digit range.
+   
+    //Process/Map inputs to outputs
+    sum=number1+number2;
+            
+    //output data
+    cout<<"This is a program to practice adding two numbers together.\n"
+        <<"A problem will display, and when ready, input the answer."<<endl;
+    cout<<number1<<endl;
+    cout<<"+"<<number2<<endl;
+    cout<<"----"<<endl;
+    cin>>answer;
+    
+    //If the answer inputted is correct.
+    if (answer == sum)
+        cout<<"Good job! That's the right answer!"<<endl;
+   
+    //If the answer inputted is incorrect.
+    else 
+    {
+        cout<<"That is the incorrect answer, this is the correct answer:"<<endl;
+        cout<<number1<<endl;
+        cout<<"+"<<number2<<endl;
+        cout<<"----"<<endl;
+        cout<<setw(4);
+        cout<<sum;
             break;
+    }
         }    
         case 2: {
             //Declare Variables
