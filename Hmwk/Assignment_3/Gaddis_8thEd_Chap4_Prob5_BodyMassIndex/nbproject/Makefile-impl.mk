@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=CPP_Template
+PROJECTNAME=Gaddis_8thEd_Chap4_Prob5_BodyMassIndex
 
 # Active Configuration
 DEFAULTCONF=Debug
