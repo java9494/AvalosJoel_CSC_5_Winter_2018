@@ -26,7 +26,9 @@ int main(int argc, char** argv) {
     int probNum;
     
     //Menu with input of choice
+    cout<<"Assignment 3 Problems"<<endl;
     cout<<"Choose from the following Menu"<<endl;
+    cout<<"-----------"<<endl;
     cout<<"Problem 1 -> Gaddis_8thEd_Chap4_Prob11_MathTutorUpdated"<<endl;
     cout<<"Problem 2 -> Gaddis_8thEd_Chap4_Prob1_MinimumMaximum"<<endl;
     cout<<"Problem 3 -> Gaddis_8thEd_Chap4_Prob5_BodyMassIndex"<<endl;
