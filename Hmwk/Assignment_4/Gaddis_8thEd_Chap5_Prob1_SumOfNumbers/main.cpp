@@ -20,7 +20,9 @@ using namespace std;
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    int start;//The user inputted value
+    int start,//The user inputted value
+        sum;//The sum of the numbers from 1 to inputted value.
+    unsigned int counter;
     
     //Initialize Variables
     cout<<"Hello! Please enter in a positive integer and I\n"
@@ -32,13 +34,13 @@ int main(int argc, char** argv) {
     //Process/Map inputs to outputs
     if (start<=0)
         cout<<"You did not read the instructions dummy! Ending program..."<<endl;
-    else {
-        for (unsigned int counter=1;counter<=start;counter++)
-            cout<<"The sum of integers from 1 to "<<start<<"is "<<counter<<"."<<endl;
-    }
+    else
+        for (sum=0,counter=1;counter<=start;counter++)
+            sum+=counter;
+  
             
     //output data
-    
+    cout<<"The sum of integers from 1 to " <<start<<" is "<<sum<<" ."<<endl;
             
     //Exit stage right!
     return 0;

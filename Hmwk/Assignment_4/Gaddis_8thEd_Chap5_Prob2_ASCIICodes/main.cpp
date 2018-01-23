@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
  * Author: Joel Avalos
- * Created on January 20, 2018, 9:21 AM
- * Purpose: Create a CSC/CIS 5 Template
+ * Created on January 20, 2018, 3:15 PM
+ * Purpose: Create a program that loops to display the ASCII codes 0 to 127.
  */
  
  //System Libraries
@@ -19,14 +19,18 @@ using namespace std;
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    
+    char letter;
     
     //Initialize Variables
-    
+    letter=1;
     
     //Process/Map inputs to outputs
-    
-            
+    for (unsigned short int counter=1;counter<=127;letter++) {
+        cout<<letter;
+        if (letter%16==0)
+            cout<<endl;
+        counter++;
+    }
     //output data
     
             

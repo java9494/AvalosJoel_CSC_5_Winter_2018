@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
  * Author: Joel Avalos
- * Created on January 20, 2018, 9:21 AM
- * Purpose: Create a CSC/CIS 5 Template
+ * Created on January 20, 2018, 3:36 PM
+ * Purpose: Create a program that will calculate the occupancy rate for a hotel.
  */
  
  //System Libraries
