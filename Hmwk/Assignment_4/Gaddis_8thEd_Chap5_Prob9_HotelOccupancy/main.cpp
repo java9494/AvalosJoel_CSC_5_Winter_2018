@@ -25,7 +25,6 @@ int main(int argc, char** argv) {
                        occpd,//Number of rooms that are occupied.
                        totRoom,
                        totOcc;
-    float              occRate;
     
     //Initialize Variables
     totRoom=0;
@@ -48,7 +47,7 @@ int main(int argc, char** argv) {
     }
             
     //output data
-    cout<<"The total number of rooms of the hotel = "<<totRoom<<"."<<endl;
+    cout<<"The total number of rooms of the hotel = "<<totRoom<<endl;
     cout<<"Occupied Rooms = "<<totOcc<<endl;
     cout<<"Unoccupied Rooms = "<<totRoom-totOcc<<endl;
     cout<<fixed<<setprecision(2)<<showpoint;
