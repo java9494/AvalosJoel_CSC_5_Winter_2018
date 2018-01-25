@@ -2,7 +2,7 @@
  * File:   main.cpp
  * Author: Joel Avalos
  * Created on January 25, 2018, 11:28 AM
- * Purpose: Create a Home Calculator Program.
+ * Purpose: Create a Home Loan Calculator Program.
  */
  
  //System Libraries
@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
     purcPrc=250000.0f;              //Purchase Price of the home in $'s
     intRate=0.04f;                  //Interest Rate/Year
     percDep=0.10f;                  //Percentage Deposit
-    loanAmt=purcPrc*(1-percDep);    //Loan amount in $'s
+    loanAmt=purcPrc*(1.0f-percDep);    //Loan amount in $'s
     mthPay=1074.19f;                //Monthly Payment
     
     //Process/Map and Display
@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     cout<<"Monthly Payment    = $"<<mthPay<<endl;
     cout<<"Month   Loan         Interest Payment  Principle"<<endl;
     int nMonths=360;
-    for (int month=0;month<10;month++) {
+    for (int month=0;month<nMonths;month++) {
         float inEndMn=loanAmt*intRate/12.0f;
         float prnPay=mthPay-inEndMn;
         cout<<setw(5)<<month
@@ -51,8 +51,9 @@ int main(int argc, char** argv) {
                 <<setw(10)<<inEndMn
                 <<setw(10)<<mthPay
                 <<setw(10)<<prnPay<<endl;
-        loanAmt+=(inEndMn=mthPay);
+        loanAmt+=(inEndMn-mthPay);
     }
+    cout<<"Final Payment at month "<<nMonths<<" = $"<<mthPay+loanAmt<<endl;
             
     //output data
     
