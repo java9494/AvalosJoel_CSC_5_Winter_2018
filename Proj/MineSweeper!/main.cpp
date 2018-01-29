@@ -37,24 +37,30 @@ int main(int argc, char** argv) {
     }
     
     cin>>row>>spot;
-    
-    if (row=='A'){
-        if (spot>=1&&spot<=9) {
-            for (int count=1;count<=27;count++) {
-                if (count==spot) {
-                    cout<<"O ";
-                spot=cleared;
+    do {    
+        if (row=='A'){
+            if (spot>=1&&spot<=9) {
+                for (int count=1;count<=27;count++) {
+                    if (count==spot) {
+                        cout<<"O ";
+                        cleared=spot;
+                        if (count%9==0)
+                            cout<<endl;
+                    }
+                    else {
+                        if (cleared==count)
+                            cout<<"O ";
+                        else {
+                        cout<<"X ";
+                        if (count%9==0)
+                            cout<<endl;
+                        }
+                    }
                 }
-                else {
-            cout<<"X ";
-        if (count%9==0)
-            cout<<endl;
-                }
-    }
-    cin>>row>>spot;        
+                cin>>row>>spot;        
+            }           
         }
-            
-    }
+    }while(row!='e');
    
  
             
