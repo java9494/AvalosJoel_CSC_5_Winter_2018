@@ -5,6 +5,7 @@
  * Purpose: Create a limited version of MineSweeper.
  * v3: Changing the O's to numbers signifying the number of adjacent mines to a
  * space.
+ * v4: Adding a win condition.
  */
  
  //System Libraries
@@ -26,7 +27,8 @@ int main(int argc, char** argv) {
     srand(static_cast<unsigned int>(time(0)));
     //Declare Variables
     bool mine;//Mine or not
-    unsigned short int clrdA1,clrdA2,clrdA3,clrdA4,clrdA5,clrdA6,
+    bool gameWin;//Win condition
+    unsigned short int cleared,clearA,clearB,clearC,clearD,clrdA1,clrdA2,clrdA3,clrdA4,clrdA5,clrdA6,
             clrdB1,clrdB2,clrdB3,clrdB4,clrdB5,clrdB6,
     clrdC1,clrdC2,clrdC3,clrdC4,clrdC5,clrdC6,
     clrdD1,clrdD2,clrdD3,clrdD4,clrdD5,clrdD6;
@@ -36,7 +38,7 @@ int main(int argc, char** argv) {
             spotB1,spotB2,spotB3,spotB4,spotB5,spotB6,
             spotC1,spotC2,spotC3,spotC4,spotC5,spotC6,
             spotD1,spotD2,spotD3,spotD4,spotD5,spotD6;
-    unsigned short int nMines,
+    unsigned short int nMines,nBugs,
             nMineA1,nMineA2,nMineA3,nMineA4,nMineA5,nMineA6,
             nMineB1,nMineB2,nMineB3,nMineB4,nMineB5,nMineB6,
             nMineC1,nMineC2,nMineC3,nMineC4,nMineC5,nMineC6,
@@ -44,6 +46,9 @@ int main(int argc, char** argv) {
     
     //Initialize Variables
     mine=false;
+    gameWin=false;
+    cleared=clearA=clearB=clearC=clearD=0;
+    nBugs=0;
     clrdA1=clrdA2=clrdA3=clrdA4=clrdA5=clrdA6=0;
     clrdB1=clrdB2=clrdB3=clrdB4=clrdB5=clrdB6=0;
     clrdC1=clrdC2=clrdC3=clrdC4=clrdC5=clrdC6=0;
@@ -61,6 +66,57 @@ int main(int argc, char** argv) {
             nMineC1=nMineC2=nMineC3=nMineC4=nMineC5=nMineC6=
             nMineD1=nMineD2=nMineD3=nMineD4=nMineD5=nMineD6=0;
     
+    //Calculate win condition
+    if (spotA1%3==0)
+        nBugs++;
+    if (spotA2%3==0)
+        nBugs++;
+    if (spotA3%3==0)
+        nBugs++;
+    if (spotA4%3==0)
+        nBugs++;
+    if (spotA5%3==0)
+        nBugs++;
+    if (spotA6%3==0)
+        nBugs++;
+    if (spotB1%3==0)
+        nBugs++;
+    if (spotB2%3==0)
+        nBugs++;
+    if (spotB3%3==0)
+        nBugs++;
+    if (spotB4%3==0)
+        nBugs++;
+    if (spotB5%3==0)
+        nBugs++;
+    if (spotB6%3==0)
+        nBugs++;
+    if (spotC1%3==0)
+        nBugs++;
+    if (spotC2%3==0)
+        nBugs++;
+    if (spotC3%3==0)
+        nBugs++;
+    if (spotC4%3==0)
+        nBugs++;
+    if (spotC5%3==0)
+        nBugs++;
+    if (spotC6%3==0)
+        nBugs++;
+    if (spotD1%3==0)
+        nBugs++;
+    if (spotD2%3==0)
+        nBugs++;
+    if (spotD3%3==0)
+        nBugs++;
+    if (spotD4%3==0)
+        nBugs++;
+    if (spotD5%3==0)
+        nBugs++;
+    if (spotD6%3==0)
+        nBugs++;
+    cout<<nBugs<<endl;
+    
     //Process/Map inputs to outputs
     cout<<"BUGSWEEPER "<<endl;
           
@@ -75,30 +131,37 @@ int main(int argc, char** argv) {
     do {    
         for (int count=1;count<=6;count++) {
             //Checking A row
+            cleared=0;
             nMines=0;
                     if (count==clrdA1){
                         cout<<nMineA1<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdA2){
                         cout<<nMineA2<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdA3){
                         cout<<nMineA3<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdA4){
                         cout<<nMineA4<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdA5){
                         cout<<nMineA5<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdA6){
                         cout<<nMineA6<<" "<<endl;
                         count++;
+                        cleared++;
                     }                   
                     if (count==spot&&row=='A') {//Finding the position of the choice
                         if (spot==1){//Setting the choice equal to rand num to test for mine
@@ -200,6 +263,7 @@ int main(int argc, char** argv) {
                         if (count%6==0)
                             cout<<endl;
                     }
+            clearA=cleared;
         }
                     //Checking B row
         for (int count=1;count<=6;count++){
@@ -207,26 +271,32 @@ int main(int argc, char** argv) {
                     if (count==clrdB1){
                         cout<<nMineB1<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdB2){
                         cout<<nMineB2<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdB3){
                         cout<<nMineB3<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdB4){
                         cout<<nMineB4<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdB5){
                         cout<<nMineB5<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdB6){
                         cout<<nMineB6<<" "<<endl;
                         count++;
+                        cleared++;
                     }
                     
                     if (count==spot&&row=='B') {//Finding the position of the choice
@@ -368,26 +438,32 @@ int main(int argc, char** argv) {
                     if (count==clrdC1){
                         cout<<nMineC1<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdC2){
                         cout<<nMineC2<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdC3){
                         cout<<nMineC3<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdC4){
                         cout<<nMineC4<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdC5){
                         cout<<nMineC5<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdC6){
                         cout<<nMineC6<<" "<<endl;
                         count++;
+                        cleared++;
                     }
                     
                     if (count==spot&&row=='C') {//Finding the position of the choice
@@ -529,26 +605,32 @@ int main(int argc, char** argv) {
                     if (count==clrdD1){
                         cout<<nMineD1<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdD2){
                         cout<<nMineD2<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdD3){
                         cout<<nMineD3<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdD4){
                         cout<<nMineD4<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdD5){
                         cout<<nMineD5<<" ";
                         count++;
+                        cleared++;
                     }
                     if (count==clrdD6){
                         cout<<nMineD6<<" "<<endl;
                         count++;
+                        cleared++;
                     }
                     
                     if (count==spot&&row=='D') {//Finding the position of the choice
@@ -652,11 +734,17 @@ int main(int argc, char** argv) {
                             cout<<endl;
                     }
                 }
+                if((cleared+nBugs)==24)
+                    gameWin=true;
+        if (gameWin=true)
+            cout<<"Congratulations! You've found all the bugs! Hooray!"<<endl;
+        else{
                if (mine!=true) 
                    cin>>row>>spot;
                 if (mine==true)
-                    cout<<"Game ogre bud!";                  
-    } while(row!='e'&&mine!=true);
+                    cout<<"Game ogre bud!";
+        }
+    } while((mine!=true)||(gameWin=false));
    
     //Exit stage right!
     return 0;
