@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
  * Author: Joel Avalos
- * Created on January 11, 2018, 1:58 PM
- * Purpose: Create a menu.
+ * Created on January 31, 2018, 8:45 PM
+ * Purpose: Create a menu for Assignment 4.
  */
  
  //System Libraries
@@ -19,8 +19,7 @@ using namespace std;
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    int probNum;
-    
+    int probNum;   
     
     //Menu with input of choice.
     cout<<"Choose a problem from this menu."<<endl;

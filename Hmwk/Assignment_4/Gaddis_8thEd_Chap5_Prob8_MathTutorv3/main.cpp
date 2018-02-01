@@ -92,17 +92,29 @@ int main(int argc, char** argv) {
                 //Subtraction
                 cout<<"This is a program to practice subtracting two numbers.\n"
                     <<"A problem will display, and when ready, input the answer."<<endl;
+                if (number1>=number2) {
                 cout<<number1<<endl;
                 cout<<"-"<<number2<<endl;
                 cout<<"----"<<endl;
+                }
+                else {
+                cout<<number2<<endl;
+                cout<<"-"<<number1<<endl;
+                cout<<"----"<<endl;
+                }
                 cin>>answer;
                 
                 //Process/Map inputs to outputs
-                sum=number1-number2;
+                if (number1>=number2)
+                    sum=number1-number2;
+                else
+                    sum=number2-number1;
 
                 //If the answer inputted is correct.
-                if (answer == sum)
+                if (answer == sum){
                     cout<<"Good job! That's the right answer!"<<endl;
+                    break;
+                }
 
                 //If the answer inputted is incorrect.
                 else 
@@ -160,7 +172,7 @@ int main(int argc, char** argv) {
 
                 //If the answer inputted is correct.
                 cout<<fixed<<setprecision(2)<<showpoint<<endl;
-                if (answer==sum) {//Error range
+                if (answer>=sum-0.1f&&answer<=sum+0.1f) {//Error range of one tenth
                     cout<<"Good job! That's the right answer!"<<endl;
                     break;
                 }
