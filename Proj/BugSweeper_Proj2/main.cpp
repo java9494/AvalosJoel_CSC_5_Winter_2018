@@ -22,7 +22,7 @@ using namespace std;
 const int COLS=10;
 
 //Function Prototypes
-void bugTest(int [],int,int);
+void bugTest(int [][COLS],int,int,bool[][COLS]);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -31,103 +31,54 @@ int main(int argc, char** argv) {
     srand(static_cast<unsigned int>(time(0)));
     
     //Declare Variables
-    bool mine;//Mine or not
     bool gameWin;//Win condition of the game
     string title;//Game title
     int choice;//User choice for menu
-    int ROWS=6;
+    const int ROWS=6;
+    bool bug[ROWS][COLS];//If a space is a bug
     unsigned short int cleared;//The number of spaces the user has cleared
             int clrd[ROWS][COLS];
     char row;//User-inputted choice for the row that the space they want to clear is in
     unsigned short int spot;//User-inputted choice for the space they want to clear
             int spots[ROWS][COLS];
-    unsigned short int nMines,//The number of mines next to a space
-            nBugs;//The total number of bugs in the game
+            int nBugs;//The total number of bugs in the game
             int nMines[ROWS][COLS];
     
-    do{
-    
     //Initialize Variables
-    mine=false;//Setting initial mine test to false
     gameWin=false;//Setting the initial gameWin condition to false
     cleared=0;//Number of initial cleared spaces
     nBugs=0;//Initial number of bugs (before randomizing)
     title="BugSweeper";
-    for (int x=0;x<ROWS;x++){
-        for (int y=0;y<COLS<y++){
+    for (int x=0;x<ROWS;x++){//Setting the cleared space check to 0
+        for (int y=0;y<COLS;y++){
             clrd[x][y]=0;
         }
     }
+    for (int x=0;x<ROWS;x++){//Randomizing each grid value
+        for (int y=0;y<COLS;y++){
+            spots[x][y]=rand();
+        }
+    }
+     for (int x=0;x<ROWS;x++){//Setting the initial mine-clue checker vals to 0
+        for (int y=0;y<COLS;y++){
+            nMines[x][y]=0;
+        }
+    }
+    for (int x=0;x<ROWS;x++){//Setting each space inttially to bug false
+        for (int y=0;y<COLS;y++){
+            bug[x][y]=false;
+        }
+    }
     
-    clrdA1=clrdA2=clrdA3=clrdA4=clrdA5=clrdA6=0;//Setting the cleared space check to 0
-    clrdB1=clrdB2=clrdB3=clrdB4=clrdB5=clrdB6=0;
-    clrdC1=clrdC2=clrdC3=clrdC4=clrdC5=clrdC6=0;
-    clrdD1=clrdD2=clrdD3=clrdD4=clrdD5=clrdD6=0;
-    spotA1=rand(); spotA2=rand(); spotA3=rand(); spotA4=rand();//Randomizing the grid
-    spotA5=rand(); spotA6=rand();
-    spotB1=rand(); spotB2=rand(); spotB3=rand(); spotB4=rand(); spotB5=rand();
-    spotB6=rand();
-    spotC1=rand(); spotC2=rand(); spotC3=rand(); spotC4=rand(); spotC5=rand();
-    spotC6=rand();
-    spotD1=rand(); spotD2=rand(); spotD3=rand(); spotD4=rand(); spotD5=rand(); 
-    spotD6=rand();
-    nMineA1=nMineA2=nMineA3=nMineA4=nMineA5=nMineA6=
-            nMineB1=nMineB2=nMineB3=nMineB4=nMineB5=nMineB6=
-            nMineC1=nMineC2=nMineC3=nMineC4=nMineC5=nMineC6=
-            nMineD1=nMineD2=nMineD3=nMineD4=nMineD5=nMineD6=0;//Setting the initial mine-clue checker vals to 0
+  
     
-    //Calculate win condition
-    if (spotA1%3==0)//If the randomized number assigned to a space is divided cleanly by 3
-        nBugs++;    //(no remainder), then that spot is considered a bug.
-    if (spotA2%3==0)
-        nBugs++;
-    if (spotA3%3==0)
-        nBugs++;
-    if (spotA4%3==0)
-        nBugs++;
-    if (spotA5%3==0)
-        nBugs++;
-    if (spotA6%3==0)
-        nBugs++;
-    if (spotB1%3==0)
-        nBugs++;
-    if (spotB2%3==0)
-        nBugs++;
-    if (spotB3%3==0)
-        nBugs++;
-    if (spotB4%3==0)
-        nBugs++;
-    if (spotB5%3==0)
-        nBugs++;
-    if (spotB6%3==0)
-        nBugs++;
-    if (spotC1%3==0)
-        nBugs++;
-    if (spotC2%3==0)
-        nBugs++;
-    if (spotC3%3==0)
-        nBugs++;
-    if (spotC4%3==0)
-        nBugs++;
-    if (spotC5%3==0)
-        nBugs++;
-    if (spotC6%3==0)
-        nBugs++;
-    if (spotD1%3==0)
-        nBugs++;
-    if (spotD2%3==0)
-        nBugs++;
-    if (spotD3%3==0)
-        nBugs++;
-    if (spotD4%3==0)
-        nBugs++;
-    if (spotD5%3==0)
-        nBugs++;
-    if (spotD6%3==0)
-        nBugs++;          
+    //Initializing bugs
+    bugTest(spots,ROWS,nBugs,bug);//If the randomized number assigned to a space is divided cleanly by 3
+    //(no remainder), then that spot is considered a bug.
+       
  
     //Start Menu
-    cout<<setw(5)<<" "<<title<<endl;
+    /*cout<<setw(5)<<" "<<title<<endl;
     cout<<setw(5)<<" "<<"----------"<<endl;
     cout<<"Welcome! Choose an option:"<<endl;
     cout<<"1. Play the Game"<<endl;
@@ -807,8 +758,22 @@ int main(int argc, char** argv) {
             cout<<"Not a valid input. Ending program!"<<endl;
     }
     }while (choice==1||choice==2);
-   
+   */
     //Exit stage right!
     return 0;
 }
 
+void bugTest(int spot[][COLS],int rows,int nbugs,bool bug[][COLS]){
+    for (int x=0;x<rows;x++){//Randomizing each grid value
+        for (int y=0;y<COLS;y++){
+            if (spot[x][COLS]%3==0){
+                cout<<spot[x][y]<<endl;
+                //cout<<y<<endl;
+                //nbugs++;
+                //bug[x][y]=true;
+                //cout<<nbugs<<endl;
+            }
+        }
+    }
+    
+}

@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Joel Avalos
- * Created on February 4, 2018, 7:01 PM
+ * Created on February 1, 2018, 6:08 PM
  * Purpose: Create a limited version of MineSweeper.
  * v3: Changing the O's to numbers signifying the number of adjacent mines to a
  * space.
@@ -19,10 +19,8 @@ using namespace std;
 
 //Global Constants - Math/Physics Constants, Conversions,
 //                   2-D Array Dimensions
-const int COLS=10;
 
 //Function Prototypes
-void bugTest(int [],int,int);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -35,15 +33,23 @@ int main(int argc, char** argv) {
     bool gameWin;//Win condition of the game
     string title;//Game title
     int choice;//User choice for menu
-    int ROWS=6;
-    unsigned short int cleared;//The number of spaces the user has cleared
-            int clrd[ROWS][COLS];
+    unsigned short int cleared,//The number of spaces the user has cleared
+            clrdA1,clrdA2,clrdA3,clrdA4,clrdA5,clrdA6,//Individual clear values for each space of the grid
+            clrdB1,clrdB2,clrdB3,clrdB4,clrdB5,clrdB6,
+            clrdC1,clrdC2,clrdC3,clrdC4,clrdC5,clrdC6,
+            clrdD1,clrdD2,clrdD3,clrdD4,clrdD5,clrdD6;
     char row;//User-inputted choice for the row that the space they want to clear is in
-    unsigned short int spot;//User-inputted choice for the space they want to clear
-            int spots[ROWS][COLS];
+    unsigned short int spot,//User-inputted choice for the space they want to clear
+            spotA1,spotA2,spotA3,spotA4,spotA5,spotA6,
+            spotB1,spotB2,spotB3,spotB4,spotB5,spotB6,
+            spotC1,spotC2,spotC3,spotC4,spotC5,spotC6,
+            spotD1,spotD2,spotD3,spotD4,spotD5,spotD6;
     unsigned short int nMines,//The number of mines next to a space
-            nBugs;//The total number of bugs in the game
-            int nMines[ROWS][COLS];
+            nBugs,//The total number of bugs in the game
+            nMineA1,nMineA2,nMineA3,nMineA4,nMineA5,nMineA6,
+            nMineB1,nMineB2,nMineB3,nMineB4,nMineB5,nMineB6,
+            nMineC1,nMineC2,nMineC3,nMineC4,nMineC5,nMineC6,
+            nMineD1,nMineD2,nMineD3,nMineD4,nMineD5,nMineD6;
     
     do{
     
@@ -53,12 +59,6 @@ int main(int argc, char** argv) {
     cleared=0;//Number of initial cleared spaces
     nBugs=0;//Initial number of bugs (before randomizing)
     title="BugSweeper";
-    for (int x=0;x<ROWS;x++){
-        for (int y=0;y<COLS<y++){
-            clrd[x][y]=0;
-        }
-    }
-    
     clrdA1=clrdA2=clrdA3=clrdA4=clrdA5=clrdA6=0;//Setting the cleared space check to 0
     clrdB1=clrdB2=clrdB3=clrdB4=clrdB5=clrdB6=0;
     clrdC1=clrdC2=clrdC3=clrdC4=clrdC5=clrdC6=0;
