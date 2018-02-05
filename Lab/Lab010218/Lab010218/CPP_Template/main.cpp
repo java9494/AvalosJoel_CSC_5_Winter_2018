@@ -1,8 +1,8 @@
 /* 
  * File:   main.cpp
  * Author: Joel Avalos
- * Created on January 2, 2018, 1:20 PM
- * Purpose: Create a CSC/CIS 5 Template
+ * Created on February 4, 2018, 9:32 AM
+ * Purpose: 
  */
  
  //System Libraries
@@ -20,10 +20,8 @@ using namespace std;
 int main(int argc, char** argv) {
     //Declare Variables
     
-    
     //Initialize Variables
-    
-    
+         
     //Process/Map inputs to outputs
     
             
@@ -33,4 +31,3 @@ int main(int argc, char** argv) {
     //Exit stage right!
     return 0;
 }
-
