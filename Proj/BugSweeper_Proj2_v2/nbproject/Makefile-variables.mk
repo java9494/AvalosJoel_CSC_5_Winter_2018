@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=bugsweeper_proj2
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/bugsweeper_proj2
+CND_ARTIFACT_NAME_Debug=bugsweeper_proj2_v2
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/bugsweeper_proj2_v2
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=bugsweeperproj2.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/bugsweeperproj2.tar
+CND_PACKAGE_NAME_Debug=bugsweeperproj2v2.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/bugsweeperproj2v2.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=bugsweeper_proj2
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/bugsweeper_proj2
+CND_ARTIFACT_NAME_Release=bugsweeper_proj2_v2
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/bugsweeper_proj2_v2
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=bugsweeperproj2.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/bugsweeperproj2.tar
+CND_PACKAGE_NAME_Release=bugsweeperproj2v2.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/bugsweeperproj2v2.tar
 #
 # include compiler specific variables
 #

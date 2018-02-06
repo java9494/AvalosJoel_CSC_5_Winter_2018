@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=BugSweeper_Proj2
+PROJECTNAME=BugSweeper_Proj2_v2
 
 # Active Configuration
 DEFAULTCONF=Debug
