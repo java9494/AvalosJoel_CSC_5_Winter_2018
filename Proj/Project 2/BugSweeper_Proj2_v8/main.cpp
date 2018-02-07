@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Joel Avalos
- * Created on February 7, 2018, 12:39 PM
+ * Created on February 7, 2018, 1:45 PM
  * Purpose: Create a full version of MineSweeper.
  * v3: Adding the neighboring bug checker.
  * v4: Adding the win condition.
@@ -9,6 +9,7 @@
  * v6: Adding more comments.
  * v7: Adding in chapter concepts previously left out (static variables,
  *     overloaded functions, exit function)
+ * v8: Adding in a while loop, ternary operator, io file scorekeeping capability.
  */
  
 //System Libraries
@@ -16,6 +17,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 
 //User Libraries
@@ -35,6 +37,7 @@ void game(int [][COLS],bool [][COLS],char [][COLS],int [][COLS],int,char,int,int
 void cleared(int [][COLS],bool[][COLS],char[][COLS],int [][COLS],int,char,int,int,bool &,bool &);//Function to clear each user-inputted space
 void display(int [][COLS],char [][COLS],int);//Function for displaying the grid.
 void rules(int [][COLS],int);//Function for displaying the Rules of the game.
+bool scoreKp();//Function for keeping records
 void exit();//Function to exit the program
 
 //Execution Begins Here
@@ -45,6 +48,7 @@ int main(int argc, char** argv) {
     //Declaring Game, Grid, and Array Variables
     bool gameWin;//Win condition of the game
     bool gameLss;//Losing condition
+    bool scores;//Flag for keeping scores
     string title;//Game title
     const int ROWS=6;//Rows in the grid.
     int spots[ROWS][COLS];//Grid
@@ -83,13 +87,13 @@ int main(int argc, char** argv) {
     
     //Initializing the Bugs
     bugTest(spots,isitBug,ROWS);//Call the bugTest function to arm bugs
-        for (int x=0;x<ROWS;x++){//Loop to display the grid with bug locations for debugging purposes
+        /*for (int x=0;x<ROWS;x++){//Loop to display the grid with bug locations for debugging purposes
         for (int y=0;y<COLS;y++){
             cout<<isitBug[x][y]<<" ";
             if (y==9)
                 cout<<endl;
         }
-    }
+    }*/
     nBugs=nbrBug(isitBug,ROWS);//Call nBug function to add up the total number of bugs in the game.
        
     //Start Menu
@@ -98,9 +102,10 @@ int main(int argc, char** argv) {
     switch (in){//This is the switch case for the menu
         case 1: game(spots,isitBug,clrDsp,nbrBugs,ROWS,row,spot,nBugs,gameLss,gameWin);break;//Run game
         case 2: rules(spots,ROWS);break;//Display rules
+        case 3: scores=scoreKp();break;//Option to keep records
         default: exit();break;//Or, exit program
     }
-    }while (in==1||in==2);//Display menu while user inputs menu choices 1 or 2
+    }while (in==1||in==2||in==3);//Display menu while user inputs menu choices 1 or 2
  
     //Exit stage right!
     return 0;
@@ -336,17 +341,18 @@ void start(string title) {//Displaying start menu to user
     cout<<"Welcome! Choose an option:"<<endl;
     cout<<"1. Play the Game"<<endl;
     cout<<"2. Rules"<<endl;
-    cout<<"3. Quit"<<endl;   
+    cout<<"3. Score Keeping"<<endl;   
+    cout<<"4. Quit"<<endl;
 }
 
 void game(int grid[][COLS],bool bug[][COLS],char spDsply[][COLS],int nbrBug[][COLS],//Game function
           int rows,char row,int spot,int nbugs,bool lose,bool win){
-    do{
+    while(lose!=true&&win!=true){
     display(grid,spDsply,rows);
     cout<<"Enter in a spot to clear."<<endl;
     cin>>row>>spot;
     cleared(grid,bug,spDsply,nbrBug,rows,row,spot,nbugs,lose,win);
-    }while(lose!=true&&win!=true);
+    }
 }
 
 void cleared(int grid[][COLS],bool bug[][COLS],char spDsply[][COLS],int nbrBugs[][COLS],//Clearing a space function
@@ -446,8 +452,21 @@ void display(int grid[][COLS],char spDsply[][COLS],int rows){//Function to displ
 void rules(int grid[][COLS],int rows){//Function to display rules.
     cout<<"Rules"<<endl;
     cout<<"-----"<<endl;
+    cout<<"  1 2 3 4 5 6 7 8 9 10"<<endl;
     for (int x=0;x<rows;x++) {
         for (int y=0;y<COLS;y++){
+            if (x==0&&y==0)
+                cout<<"A ";
+            if (x==1&&y==0)
+                cout<<"B ";
+            if (x==2&&y==0)
+                cout<<"C ";
+            if (x==3&&y==0)
+                cout<<"D ";
+            if (x==4&&y==0)
+                cout<<"E ";
+            if (x==5&&y==0)
+                cout<<"F ";
             cout<<"X ";
         if (y==9)
             cout<<endl;
@@ -458,6 +477,16 @@ void rules(int grid[][COLS],int rows){//Function to display rules.
     cout<<"Spots are columns 1 2 3 4 5 6 7 8 9 10"<<endl;
     cout<<"For example: Entering A1 would clear the top left corner."<<endl;
     cout<<"The objective of the game is to clear the entire grid without triggering a bug. Have fun!"<<endl;          
+}
+
+bool scoreKp(){//Function for prompting user to keep scores
+    bool score=false;
+    char yesNo;
+    cout<<"Would you like to keep score records?"<<endl;
+    cout<<"Enter in a Y for yes, and a N for no."<<endl;
+    cin>>yesNo;
+    yesNo=='Y'?score=true:score=false;
+    return score;
 }
 
 void exit(){//Exit function
