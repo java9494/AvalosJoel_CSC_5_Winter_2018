@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
  * Author: Joel Avalos
- * Created on February 7, 2018, 1:45 PM
+ * Created on February 7, 2018, 7:17 PM
  * Purpose: Create a full version of MineSweeper.
  * v3: Adding the neighboring bug checker.
  * v4: Adding the win condition.
@@ -10,6 +10,7 @@
  * v7: Adding in chapter concepts previously left out (static variables,
  *     overloaded functions, exit function)
  * v8: Adding in a while loop, ternary operator, io file scorekeeping capability.
+ * v9: Finishing touches!
  */
  
 //System Libraries
@@ -546,7 +547,7 @@ void savRecs(int &totGame,int gameNum,string name,bool gamesW[],vector<bool> gam
     for (int count=1;count<=gameNum;count++){
         if (gamesW[count]==true)
             wins++;
-        if (gamesL[count]==true)
+        else if (gamesL[count]==true)
             losses++;
     }
     average=static_cast<float>(wins)/gameNum;
