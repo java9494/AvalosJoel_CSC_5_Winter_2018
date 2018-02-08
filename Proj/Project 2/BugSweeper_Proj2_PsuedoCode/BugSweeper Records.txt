@@ -1,9 +1,9 @@
 BugSweeper Records
 ------------------
-Joey
+
 ---------
-Games won                     = 0
-Games lost                    = 1
+Games won                     = 1
+Games lost                    = 0
 Total Games You Played        = 1
-Your Average                  = 0%
-Total Games Played Altogether = 1
+Your Average                  = 100%
+Total Games Played Altogether = 5

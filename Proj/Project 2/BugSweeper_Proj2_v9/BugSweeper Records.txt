@@ -1,6 +1,6 @@
 BugSweeper Records
 ------------------
-Joey
+
 ---------
 Games won                     = 0
 Games lost                    = 1

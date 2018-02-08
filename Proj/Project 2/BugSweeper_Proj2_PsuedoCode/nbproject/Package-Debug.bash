@@ -13,9 +13,9 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=dll
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bugsweeper_proj2_v9
-OUTPUT_BASENAME=bugsweeper_proj2_v9
-PACKAGE_TOP_DIR=bugsweeperproj2v9/
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bugsweeper_proj2_psuedocode
+OUTPUT_BASENAME=bugsweeper_proj2_psuedocode
+PACKAGE_TOP_DIR=bugsweeperproj2psuedocode/
 
 # Functions
 function checkReturnCode
@@ -60,15 +60,15 @@ mkdir -p ${NBTMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory "${NBTMPDIR}/bugsweeperproj2v9/bin"
+makeDirectory "${NBTMPDIR}/bugsweeperproj2psuedocode/bin"
 copyFileToTmpDir "${OUTPUT_PATH}.exe" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/bugsweeperproj2v9.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/bugsweeperproj2psuedocode.tar
 cd ${NBTMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/bugsweeperproj2v9.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/bugsweeperproj2psuedocode.tar *
 checkReturnCode
 
 # Cleanup

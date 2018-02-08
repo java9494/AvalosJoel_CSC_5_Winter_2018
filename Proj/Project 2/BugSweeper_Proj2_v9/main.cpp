@@ -486,6 +486,7 @@ void cleared(int grid[][COLS],bool bug[][COLS],char spDsply[][COLS],int nbrBugs[
         gamesW[gameNum]=true;
         totGame++;
         savRecs(totGame,gameNum,name,gamesW,gamesL,size);
+        display(grid,spDsply,rows);
         cout<<"Congratulations! You have cleared all the bugs. Hooray!!!"<<endl;
     }
 }
